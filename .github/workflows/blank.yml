@@ -32,9 +32,9 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: 192.168.50.121
-          username: sv
-          password: sv28991410)(*
+          host: ${{ secrets.TC_HOST }}
+          username: ${{ secrets.TC_NAME }}
+          password: ${{ secrets.TC_PW }}
           port: 22
           script: docker ps
 
