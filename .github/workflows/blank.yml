@@ -33,7 +33,7 @@ jobs:
     runs-on: self-hosted #ubuntu-latest #self-hosted
     steps:
     - name: Clean up .scannerwork folder
-      run: docker run -v "gru8vmp4:/usr/src" sonarsource/sonar-scanner-cli rm -rf .scannerwork
+      run: docker run -v "$(pwd):/usr/src" sonarsource/sonar-scanner-cli rm -rf .scannerwork
     
     - name: Checkout code
       uses: actions/checkout@v2
