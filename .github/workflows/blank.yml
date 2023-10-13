@@ -34,6 +34,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      
+    - name: Clean up .scannerwork folder
+      run: docker run -v "gru8vmp4:/usr/src" sonarsource/sonar-scanner-cli rm -rf .scannerwork
 
     - name: Set up Docker
       run: |
