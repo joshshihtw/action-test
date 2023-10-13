@@ -32,12 +32,12 @@ jobs:
     # The type of runner that the job will run on
     runs-on: self-hosted #ubuntu-latest #self-hosted
     steps:
+    - name: Clean up .scannerwork folder
+      run: docker run -v "gru8vmp4:/usr/src" sonarsource/sonar-scanner-cli rm -rf .scannerwork
+    
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Clean up .scannerwork folder
-      run: docker run -v "gru8vmp4:/usr/src" sonarsource/sonar-scanner-cli rm -rf .scannerwork
-
     - name: Set up Docker
       run: |
         docker run \
